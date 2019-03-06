@@ -1,0 +1,31 @@
+## Pimped syntax highlighting for
+## .asl (AgentSpeak Language) files
+
+syntax jason "\.asl$"
+comment "//"
+
+# Boolean variables (true, false)
+# Annotations (starting by @)
+color cyan "true|false|@[[:print:]]+"
+
+# Reserved keywords: (tell, untell, achieve, unachieve...)
+color blue "\<(tell|untell|achieve|unachieve)\>"
+
+# Mental notes from the type [source(...)]
+color yellow "[[][[:space:]]*source[(][[:print:]]*[)][[:space:]]*[]]"
+
+# Function calls (.print, .send, ...)
+# Basically everything starting with <dot>
+color red "[.][[:alpha:]]+"
+
+# Achievement goals (!), test goals (?)
+# Achievement goal add and removal (+!, -!)
+# Arrow to separate header + context from body
+color green "[-+]?[!?]?|<-"
+
+# Context where the desire will take place (:)
+# Separation from trigger + context to function body (<-)
+color cyan ":[-]?"
+
+# Comments
+color green "//[[:print:]]*"

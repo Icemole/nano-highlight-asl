@@ -16,16 +16,23 @@ color yellow "[[][[:space:]]*source[(][[:print:]]*[)][[:space:]]*[]]"
 
 # Function calls (.print, .send, ...)
 # Basically everything starting with <dot>
-color red "[.][[:alpha:]]+"
+## This assumes that you have a bright theme while using nano.
+## Consider changing the color if its contrast is very low.
+color brightwhite "[.]([[:alnum:]]|_)+"
+
+# Achievement goal add and removal (+!, -!)
+color brightred "([-+]|[-]|[+])[!]?[!?]?([[:alnum:]]|_)*"
 
 # Achievement goals (!), test goals (?)
-# Achievement goal add and removal (+!, -!)
-# Arrow to separate header + context from body
-color green "[-+]?[!?]?|<-"
+color brightred "([!]|[!!]|[?])([[:alnum:]]|_)*"
 
-# Context where the desire will take place (:)
+# Context where the goal will take place (:)
 # Separation from trigger + context to function body (<-)
-color cyan ":[-]?"
+color brightcyan ":[-]?|<-"
+
+# Strings
+color brightblue ""[^"]*""
 
 # Comments
-color green "//[[:print:]]*"
+color brightgreen "//[[:print:]]*"
+color brightgreen start="/\*" end="\*/"
